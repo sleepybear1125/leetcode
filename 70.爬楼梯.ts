@@ -11,8 +11,7 @@
  */
 function climbStairs(n: number): number {
   /*
-  //普通递归(超时)
-  //优化版本2:把中间值缓存，只计算一遍 时间复杂度:O(2^n) 空间复杂度:O(1)
+  //版本1:普通递归(超时) 时间复杂度:O(2^n) 空间复杂度:O(n)
   if (n <= 2) {
     return n;
   }
@@ -30,7 +29,7 @@ function climbStairs(n: number): number {
   return dp[n];
   */
   
-  // /*
+  /*
   //优化版本3:优化空间复杂度 时间复杂度:O(n) 空间复杂度:O(1)
   let v0 = 1;
   let v1 = 1;
@@ -43,7 +42,14 @@ function climbStairs(n: number): number {
   return sum;
   // */
 
-  //TODO:优化版本4:优化时间复杂度 时间复杂度:O(logn) 空间复杂度:O(1)
+  // /*
+  // 优化版本4:优化时间复杂度 时间复杂度:O(logn) 空间复杂度:O(1)
+  // Wiki: https://en.wikipedia.org/wiki/Fibonacci_number#Closed-form_expression
+  // Baidu: https://baike.baidu.com/item/斐波那契数列
+  const sqrt_5 = Math.sqrt(5);
+  const fib_n = Math.pow((1 + sqrt_5) / 2, n + 1) - Math.pow((1 - sqrt_5) / 2,n + 1);
+  return Math.round(fib_n / sqrt_5);
+  // */
 };
 // @lc code=end
 
