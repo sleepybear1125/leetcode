@@ -23,7 +23,7 @@ function maxArea(height: number[]): number {
   let area = 0;
   for (let i = 0, j = l - 1; i < j; ) {
     const width = j - i;
-    let maxHeight = height[i] < height[j] ? height[i++] : height[j--] ;
+    const maxHeight = height[i] < height[j] ? height[i++] : height[j--] ;
     area = Math.max(area, maxHeight * width);
   }
   return area;
